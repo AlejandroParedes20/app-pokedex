@@ -1,0 +1,160 @@
+<nav class="navbar">
+
+
+  <div class="form">
+    <input type="text" class="form-control"
+     placeholder="Name pokemon"
+    [(ngModel)]="searchPokemon" name="searchPokemon">
+
+  
+  </div>
+
+  <button class="btn btn-user" routerLink="/user">
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+    </svg>
+  </button>
+
+</nav>
+
+<section class="content" *ngIf="showContent">
+
+  <div class="container" [@animations]="pokemonsDefault">
+    <mat-card class="card"
+     *ngFor="let pokemon of arrayPokemons | filter:searchPokemon"
+     >
+
+     <div class="margen"></div>
+      <mat-card-title>
+        <span class="badge bg-info text-white">ID:{{pokemon.id}}</span>
+      </mat-card-title>
+
+      <mat-card-content>
+        <img [src]="pokemon.sprites.front_default" alt="pokemon">
+      </mat-card-content>
+      <mat-card-actions class="data-pokemon">
+        <strong class="data">Name:</strong>
+        <strong>{{pokemon.name}}</strong>
+
+        <strong class="data">Type:</strong>
+        <strong>{{pokemon.types[0].type.name}}</strong>
+      </mat-card-actions>
+
+      <mat-card-footer class="data">
+        <button class="btn btn-primary mb-3" (click)="InfoPokemon(pokemon.name)">See more information
+        </button>
+      </mat-card-footer>
+
+    </mat-card>
+  </div>
+
+
+  <div class="info-pokemon" [@animations]="infoPokemonDefault">
+
+    <h2>{{name}}</h2>
+
+    <button mat-button color="warn"
+     class="btn-x"
+     (click)="CloseInfoPokemon()"
+     >X</button>
+
+
+    <div class="imgs">
+      <img [src]="img1" width="150" height="150">
+      <img [src]="img2" width="150" height="150">
+      <img [src]="img3" width="150" height="150">
+    </div>
+
+
+    <div class="description-pokemon">
+      <h5 class="h5-description mt-3">Description Pokemon</h5>
+
+      <h6 class="description">{{effect1}}</h6>
+      <h6 class="description">{{effect2}}</h6>
+    </div>
+
+
+    <div class="details">
+
+      <h5 class="h5-details">Details</h5>
+
+      <div class="types">
+        <span class="badge bg-info text-dark">Type: </span>
+        <span class="pokemon-type bg text-black">{{types}}</span>
+      </div>
+
+      <div class="barra">
+
+        <div class="title">
+          <h6>Power</h6>
+
+        </div>
+        <mat-progress-bar class="barr" mode="determinate" [value]="power"></mat-progress-bar> <span
+          class="badge text-success ml-3 power">{{power}}%</span>
+
+      </div>
+
+      <div class="barra">
+
+        <div class="title">
+          <h6>PP</h6>
+
+        </div>
+        <mat-progress-bar class="barr" mode="determinate" [value]="pp"></mat-progress-bar> <span
+          class="badge text-success ml-3 power">{{pp}}%</span>
+
+      </div>
+      <div class="barra">
+
+        <div class="title">
+          <h6>Priority</h6>
+
+        </div>
+        <mat-progress-bar class="barr" mode="determinate" [value]="priority"></mat-progress-bar> <span
+          class="badge text-success ml-3 power">{{priority}}%</span>
+
+      </div>
+
+      <div class="barra">
+
+        <div class="title">
+          <h6>Accuracy</h6>
+
+        </div>
+        <mat-progress-bar class="barr" mode="determinate" [value]="accuracy"></mat-progress-bar> <span
+          class="badge text-success ml-3 power">{{accuracy}}%</span>
+
+      </div>
+
+      <div class="moves">
+       <h6>Moves</h6>
+
+<strong class="strong">{{move1}}</strong>
+<strong class="strong">{{move2}}</strong>
+      
+    </div>
+    <div class="moves">
+      <h6>Combos</h6>
+
+<strong class="strong">{{combo1}}</strong>
+<strong class="strong">{{combo2}}</strong>
+     
+   </div>
+
+    </div>
+  
+
+
+  </div>
+
+
+  
+<div class="btns">
+
+  <button routerLink="/" [routerLinkActive]="['active']">1</button>
+  <button routerLink="/catalogue2" [routerLinkActive]="['active']">2</button>
+  <button routerLink="/catalogue3" [routerLinkActive]="['active']">3</button>
+</div>
+</section>

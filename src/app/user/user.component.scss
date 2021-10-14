@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+$Roboto:'Roboto';
+
+.content{
+    width: 100%;
+    min-height: 100%;
+    background: #f3f3f3;
+   
+  
+
+
+ .btnx{
+     position: fixed;
+     top: 10px;
+     left: 10px;
+ }
+
+    .info-user{
+        width: 90%;
+        min-height: 250px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 90px auto auto auto;
+    
+ img{
+     object-fit: contain;
+     width: 250px;
+     height: 250px;
+     border-radius: 50%;
+     margin: 0px auto;
+     display: block;
+ }
+
+    .data-personal{
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .data{
+            width: 100%;
+            min-height: 55px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 9px;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+             border-radius: 5px;
+            .text{
+                font-family: $Roboto;
+                font-size: 20px;
+            }
+        }
+    }
+    }
+}
+
+
+
+@media (min-height: 800px){
+
+    .content{
+ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+.info-user{
+margin: auto auto auto auto;
+}
+ 
+    }
+ }
+
+@media (min-width: 1194px){
+
+    .content{
+ 
+.info-user{
+
+    width: 1000px;
+}
+ 
+    }
+ }
